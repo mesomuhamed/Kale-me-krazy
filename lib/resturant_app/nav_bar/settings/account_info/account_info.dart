@@ -25,13 +25,13 @@ class AccountInfo extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         var model = HomeCubit.get(context).userModel;
-        emailController.text = model.user.email;
+        if(model!=null){emailController.text = model.user.email;
         firstNameController.text = model.user.firstname;
         lastNameController.text = model.user.lastname;
         userNameController.text = model.user.username;
         birthdateController.text = model.user.birthdate;
         phoneController.text=model.user.phone;
-        addressController.text=model.user.address;
+        addressController.text=model.user.address;}
         return ConditionalBuilder(
           condition: model != null,
           builder: (context) => Scaffold(
@@ -91,7 +91,7 @@ class AccountInfo extends StatelessWidget {
                               height: 10,
                             ),
                             Text(
-                              'Last name',
+                              'Last Name',
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w600),
                             ),
@@ -110,7 +110,7 @@ class AccountInfo extends StatelessWidget {
                               height: 10,
                             ),
                             Text(
-                              'User name',
+                              'user name',
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w600),
                             ),
@@ -129,7 +129,7 @@ class AccountInfo extends StatelessWidget {
                               height: 10,
                             ),
                             Text(
-                              'Date of birth',
+                              'Date Of Birth',
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w600),
                             ),
@@ -163,7 +163,7 @@ class AccountInfo extends StatelessWidget {
                               height: 10,
                             ),
                             Text(
-                              'Phone number',
+                              'Phone Number',
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w600),
                             ),

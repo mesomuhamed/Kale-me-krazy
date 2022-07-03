@@ -81,7 +81,7 @@ class CreateOrderScreen extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        'Phone number',
+                        'Phone Number',
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w600),
                       ),

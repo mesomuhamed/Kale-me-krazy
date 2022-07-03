@@ -7,6 +7,7 @@ const CHANGE_PASSWORD = 'api/change-password/';
 const REVIEW = 'staff/comment/';
 const CART = 'order/cart/';
 const CHECK_OUT = 'order/checkout/';
+const CHECK_OUT_IN = 'order/checkoutin/';
 const ORDER_HISTORY = 'order/orderhistory/';
 const ORDER_DETAILS = 'order/orderdetails/';
 const FORGET_PASSWORD = 'api/reset/';

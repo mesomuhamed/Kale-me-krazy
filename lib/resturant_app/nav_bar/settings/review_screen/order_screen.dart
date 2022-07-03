@@ -20,14 +20,6 @@ class OrderScreen extends StatelessWidget {
         listener: (BuildContext context, state) {},
         builder: (BuildContext context, state) {
           return Scaffold(
-            floatingActionButton: FloatingActionButton(
-              child: Icon(Icons.comment),
-              onPressed: ()
-              {
-                navegateTo(context,Reveiw());
-              },
-            ),
-
             body: Stack(
               children: [
                 design(
@@ -105,20 +97,34 @@ class OrderScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                             order.orderDate,
-                            style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 20),
                           ),
                         ],
                       ),
                       Spacer(),
-                      Icon((Icons.arrow_forward_ios_outlined)),
+                      if(order.orderOnline==true)
+                      Text('Online Order',style: TextStyle(
+                        color: Colors.green,
+                          fontSize: 17.0
+                      ),)
+                      else if(order.orderOnline==false)
+                        Text('In Resturant',style: TextStyle(
+                          color:defaultColor,
+                            fontSize: 17.0
+                        ),)
+                       // defaultTextButton(
+                      //     text: 'Review',
+                      //     color: defaultColor,
+                      //     function: () {
+                      //       navegateTo(context, Reveiw());
+                      //     })
                     ],
                   ),
                 ),

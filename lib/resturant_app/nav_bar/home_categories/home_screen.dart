@@ -6,7 +6,6 @@ import 'package:untitled1/layout/categories_layout/categories_layout/cubit/state
 import 'package:untitled1/model/home_model.dart';
 import 'package:untitled1/model/user_model.dart';
 import 'package:untitled1/resturant_app/nav_bar/home_categories/dish_detailes_screen.dart';
-import 'package:untitled1/resturant_app/nav_bar/settings/review_screen/review.dart';
 import 'package:untitled1/shared/components/component.dart';
 import 'package:untitled1/shared/remote/colors/colors.dart';
 
@@ -24,13 +23,6 @@ class HomeScreen extends StatelessWidget {
 
         return Scaffold(
           backgroundColor: Colors.white,
-          floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.comment),
-            onPressed: ()
-            {
-              navegateTo(context,Reveiw());
-            },
-          ),
           body: Padding(
             padding: const EdgeInsets.all(20.0),
             child: RefreshIndicator(
@@ -41,17 +33,12 @@ class HomeScreen extends StatelessWidget {
               onRefresh: ()=> cubitH.getHomeData(),
               child: SingleChildScrollView(
                 physics: BouncingScrollPhysics(),
-                //هذا الكولوم الكبير
-                child: Container(
-                  child: Center(
-                    child: ConditionalBuilder(
-                      builder: (context) =>
-                          homeProductsBuilder(cubitH.userModel,cubitH.homeModel, context),
-                      condition: HomeCubit.get(context).homeModel != null&& HomeCubit.get(context).userModel != null,
-                      fallback: (context) =>
-                          Center(child: CircularProgressIndicator()),
-                    ),
-                  ),
+                child: ConditionalBuilder(
+                  builder: (context) =>
+                      homeProductsBuilder(cubitH.userModel,cubitH.homeModel, context),
+                  condition: HomeCubit.get(context).homeModel != null&& HomeCubit.get(context).userModel != null,
+                  fallback: (context) =>
+                      Center(child: CircularProgressIndicator()),
                 ),
               ),
             ),
@@ -62,30 +49,31 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget homeProductsBuilder(UserModel user,HomeAndCategoryModel model, context) =>
-      Column(crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+      Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
 
         //اسم العميل
         Text(
-          '${'Hi'+' '+user.user.firstname } !',
+          '${'Hi'+' '+user.user.firstname +' '+user.user.lastname}',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
         ),
-        SizedBox(height: 20,),
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          'What do you',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
           ),
-          child: Text(
-            'What do you \nwant to eat today? ',
-            style: TextStyle(
-              height: 1.3,
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
-            ),
+        ),
+        Text(
+          'want to eat today?',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
           ),
         ),
         //الفورم فيلت ثابت وانا استدعيته من الكبوننت (السيرش)
@@ -138,7 +126,7 @@ class HomeScreen extends StatelessWidget {
           crossAxisCount: 2,
           mainAxisSpacing: 0.0,
           crossAxisSpacing: 20.0,
-          childAspectRatio: 1 / 1.6,
+          childAspectRatio: 1 / 1.4,
           children: List.generate(model.data.homepage.length,
               (index) => buildGridProduct(model.data.homepage[index], context)),
         )
@@ -203,7 +191,7 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      ' ${model.dishPrice}'+' '+'\$',
+                      ' ${model.dishPrice}',
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,

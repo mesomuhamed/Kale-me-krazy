@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:untitled1/layout/categories_layout/categories_layout/cubit/cubit.dart';
@@ -15,8 +14,7 @@ import 'package:untitled1/shared/remote/cash_helper.dart';
 import 'package:untitled1/shared/remote/dio_helper.dart';
 
 import 'resturant_app/nav_bar/settings/review_screen/cubit/cubit.dart';
-
-//hello iam measser
+//........
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
@@ -60,7 +58,8 @@ class MyApp extends StatelessWidget {
               ..getHomeData()
               ..getFavorites()
               ..getUserData()
-              ..getReviewData()),
+              ..getReviewData()
+        ),
       ],
       child: BlocConsumer<KaleCrazyCubit, KaleCrazyState>(
         listener: (BuildContext context, state) {},
@@ -72,7 +71,7 @@ class MyApp extends StatelessWidget {
               minWidth: 480,
               defaultScale: true,
               breakpoints: [
-                ResponsiveBreakpoint.resize(420, name: MOBILE),
+                ResponsiveBreakpoint.resize(480, name: MOBILE),
                 ResponsiveBreakpoint.autoScale(800, name: TABLET),
                 ResponsiveBreakpoint.resize(1000, name: DESKTOP),
                 ResponsiveBreakpoint.autoScale(2460, name: '4K'),

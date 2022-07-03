@@ -30,7 +30,6 @@ class SearchScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-
                     defaultFormField(
                       controller: searchController,
                       type: TextInputType.text,
@@ -45,7 +44,7 @@ class SearchScreen extends StatelessWidget {
                         SearchCubit.get(context).search(text);
                       },
                       suffix: Icons.search,
-                      label: 'Search food'.toString(),
+                      label: 'Search Food'.toString(),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30)),
                     ),

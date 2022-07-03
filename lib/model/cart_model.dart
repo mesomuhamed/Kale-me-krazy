@@ -15,6 +15,8 @@ class CartModel {
 class Data {
   List<CartItem> cartItem;
   double totalPrice;
+  double subTotal;
+  int delivery;
 
   Data({this.cartItem, this.totalPrice});
 
@@ -26,6 +28,8 @@ class Data {
       });
     }
     totalPrice = json['total_price'];
+    subTotal = json['sub_total'];
+    delivery = json['delivery'];
   }
 
 

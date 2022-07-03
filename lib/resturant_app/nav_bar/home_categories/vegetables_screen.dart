@@ -56,7 +56,7 @@ class VegetablesScreen extends StatelessWidget {
         //اسم العميل
 //اسم العميل
         Text(
-          '${'Hi'+' '+user.user.firstname } !',
+          '${'Hi' + ' ' + user.user.firstname + ' ' + user.user.lastname}',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
@@ -129,7 +129,7 @@ class VegetablesScreen extends StatelessWidget {
           crossAxisCount: 2,
           mainAxisSpacing: 0.0,
           crossAxisSpacing: 20.0,
-          childAspectRatio: 1 / 1.6,
+          childAspectRatio: 1 / 1.4,
           children: List.generate(
               model.data.category.elementAt(0).products.product.length,
               (index) => buildGridProduct(
@@ -200,7 +200,7 @@ class VegetablesScreen extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      ' ${model.dishPrice}'+' '+'\$',
+                      ' ${model.dishPrice}',
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,

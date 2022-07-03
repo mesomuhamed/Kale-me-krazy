@@ -55,7 +55,7 @@ class DrinksScreen extends StatelessWidget {
         //اسم العميل
 //اسم العميل
         Text(
-          '${'Hi'+' '+user.user.firstname } !',
+          '${'Hi'+' '+user.user.firstname +' '+user.user.lastname}',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
@@ -127,7 +127,7 @@ class DrinksScreen extends StatelessWidget {
           crossAxisCount: 2,
           mainAxisSpacing: 0.0,
           crossAxisSpacing: 20.0,
-          childAspectRatio: 1 / 1.6,
+          childAspectRatio: 1 / 1.4,
           children: List.generate(model.data.category.elementAt(2).products.product.length,
                   (index) => buildGridProduct(model.data.category.elementAt(2).products.product[index], context)),
         )
@@ -194,7 +194,7 @@ class DrinksScreen extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  ' ${model.dishPrice}'+' '+'\$',
+                  ' ${model.dishPrice}',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,

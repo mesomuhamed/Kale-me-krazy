@@ -22,7 +22,7 @@ class Reservation extends StatelessWidget {
               backgroundColor: Colors.green,
               content: Text(state.reservationModel.massege),
               padding: EdgeInsetsDirectional.all(20),
-              duration: Duration(milliseconds: 800),
+              duration: Duration(milliseconds: 950),
             ));
             timeControl.clear();
             dateControl.clear();
@@ -56,12 +56,13 @@ class Reservation extends StatelessWidget {
                                   validate: (String value) {
                                     if (value.isEmpty) {
                                       return 'please enter your date';
-                                    }},
+                                    }
+                                  },
                                   prefix: Caticons.calendar,
                                   controller: dateControl,
                                   textAlign: TextAlign.center,
                                   type: TextInputType.datetime,
-                                  hint: 'Rservation date',
+                                  hint: 'Rservation Date',
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(5),
                                   ),
@@ -78,10 +79,15 @@ class Reservation extends StatelessWidget {
                                                 .format(value);
                                         dateControl.text = formattedDate;
                                         print(dateControl.text.toString());
-                                      },);},),
+                                      },
+                                    );
+                                  },
+                                ),
                               ],
                             ),
-                            SizedBox(height: 20,),
+                            SizedBox(
+                              height: 20,
+                            ),
                           ],
                         ),
                         Column(
@@ -90,16 +96,19 @@ class Reservation extends StatelessWidget {
                                 validate: (String value) {
                                   if (value.isEmpty) {
                                     return 'please enter your time';
-                                  }},
+                                  }
+                                },
                                 controller: timeControl,
                                 prefix: Caticons.clock,
                                 textAlign: TextAlign.center,
                                 type: TextInputType.datetime,
-                                hint: 'Reservation time',
+                                hint: 'Reservation Time',
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
-                                    color: Colors.amber,),),
+                                    color: Colors.amber,
+                                  ),
+                                ),
                                 onTap: () {
                                   showTimePicker(
                                     context: context,
@@ -111,14 +120,17 @@ class Reservation extends StatelessWidget {
                                 }),
                           ],
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Column(
                           children: [
                             defaultFormField(
                               validate: (String value) {
                                 if (value.isEmpty) {
                                   return 'please enter your guest';
-                                }},
+                                }
+                              },
                               prefix: Caticons.guest,
                               controller: guestControl,
                               textAlign: TextAlign.center,
@@ -128,10 +140,14 @@ class Reservation extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(5),
                                 borderSide: BorderSide(
                                   color: Colors.amber,
-                                ),),)
+                                ),
+                              ),
+                            )
                           ],
                         ),
-                        SizedBox(height: 50,),
+                        SizedBox(
+                          height: 50,
+                        ),
                         defaultButton(
                           function: () {
                             if (keyForm.currentState.validate()) {
@@ -140,9 +156,15 @@ class Reservation extends StatelessWidget {
                                 res_guest_count: guestControl.text,
                                 res_time: timeControl.text,
                               );
-                            }},
-                          text: 'submit',)
-                      ],),),),)),
+                            }
+                          },
+                          text: 'submit',
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              )),
               Padding(
                 padding: const EdgeInsets.only(top: 80.0),
                 child: Column(

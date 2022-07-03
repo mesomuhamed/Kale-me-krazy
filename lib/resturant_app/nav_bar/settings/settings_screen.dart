@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled1/layout/categories_layout/kale_me_crazy/cubit/cubit.dart';
 import 'package:untitled1/resturant_app/nav_bar/settings/account_info/account_info.dart';
-import 'package:untitled1/resturant_app/nav_bar/settings/revew/revew_screen.dart';
+import 'package:untitled1/resturant_app/nav_bar/settings/review_screen/comments.dart';
 import 'package:untitled1/resturant_app/nav_bar/settings/review_screen/order_screen.dart';
 import 'package:untitled1/shared/components/component.dart';
 import 'package:untitled1/shared/remote/colors/colors.dart';
@@ -25,7 +25,7 @@ class SettingScreen extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'Account info',
+                        'Account Info',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -44,7 +44,7 @@ class SettingScreen extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'My order',
+                        'My Order',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -64,7 +64,7 @@ class SettingScreen extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'Change password',
+                        'Change Password',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -73,25 +73,6 @@ class SettingScreen extends StatelessWidget {
                       IconButton(
                           onPressed: () {
                             navegateTo(context, ChangePasswordScreen());
-                          },
-                          icon: Icon(Icons.arrow_forward_ios_outlined)),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        'About us',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                      Spacer(),
-                      IconButton(
-                          onPressed: () {
-                            navegateTo(context, AboutUs());
                           },
                           icon: Icon(Icons.arrow_forward_ios_outlined)),
                     ],
@@ -114,6 +95,28 @@ class SettingScreen extends StatelessWidget {
                           },
                           icon: Icon(Icons.arrow_forward_ios_outlined)),
                     ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        'About Us',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                      Spacer(),
+                      IconButton(
+                          onPressed: () {
+                            navegateTo(context, AboutUs());
+                          },
+                          icon: Icon(Icons.arrow_forward_ios_outlined)),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
                   ),
                   Center(
                     child: Padding(

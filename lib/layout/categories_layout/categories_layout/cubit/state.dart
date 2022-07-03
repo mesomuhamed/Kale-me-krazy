@@ -2,6 +2,7 @@
 
 import 'package:untitled1/model/change_favorites_model.dart';
 import 'package:untitled1/model/change_password_model.dart';
+import 'package:untitled1/model/check_out_in_model.dart';
 import 'package:untitled1/model/order_model.dart';
 import 'package:untitled1/model/reservation_model.dart';
 import 'package:untitled1/model/send_review_model.dart';
@@ -122,12 +123,10 @@ class ResturantChangepasswordChangeChangeRadioState extends HomeState {}
 
 class ResturantReviewLoadingState extends HomeState {}
 
-class ResturantReviewSuccessState extends HomeState
-{
+class ResturantReviewSuccessState extends HomeState {
   final SendReview sendReview ;
 
   ResturantReviewSuccessState(this.sendReview);
-
 }
 
 class ResturantReviewErrorState extends HomeState {
@@ -194,8 +193,19 @@ class ResturantSuccessOrderDataStates extends HomeState {
 
 class ResturantErrorOrderDataStates extends HomeState {}
 
+class ResturantLoadingCheckOutInStates extends HomeState {}
+
+class ResturantSuccessCheckOutInStates extends HomeState {
+
+  final CheckOutInModel checkOutIn;
+
+  ResturantSuccessCheckOutInStates(this.checkOutIn);
+}
+
+class ResturantErrorCheckOutInStates extends HomeState {}
 class LoadingReview extends HomeState{}
 
 class SuccessReview extends HomeState{}
 
 class ErrorReview extends HomeState{}
+

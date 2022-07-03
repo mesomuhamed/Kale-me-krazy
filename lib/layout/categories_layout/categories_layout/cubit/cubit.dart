@@ -7,6 +7,7 @@ import 'package:untitled1/layout/categories_layout/categories_layout/cubit/state
 import 'package:untitled1/model/cart_model.dart';
 import 'package:untitled1/model/change_favorites_model.dart';
 import 'package:untitled1/model/change_password_model.dart';
+import 'package:untitled1/model/check_out_in_model.dart';
 import 'package:untitled1/model/favorites_model.dart';
 import 'package:untitled1/model/home_model.dart';
 import 'package:untitled1/model/order_model.dart';
@@ -398,6 +399,21 @@ class HomeCubit extends Cubit<HomeState> {
       print(error.toString());
     });
   }
+  CheckOutInModel checkOutIn;
+  void checkOut() {
+    emit(ResturantLoadingCheckOutInStates());
+    DioHelper.getdata(
+        url: CHECK_OUT_IN,
+        token: token,
+        ).then((value) {
+      checkOutIn = CheckOutInModel.fromJson(value.data);
+      emit(ResturantSuccessCheckOutInStates(checkOutIn));
+      print(value.data);
+    }).catchError((error) {
+      emit(ResturantErrorCheckOutInStates());
+      print(error.toString());
+    });
+  }
 
 //================== addToCart ==================//
 
@@ -453,7 +469,7 @@ class HomeCubit extends Cubit<HomeState> {
       emit(CartErrorUpdateQuantityState());
     });
   }
-
+  // ==============================get reviews ================================
   ReviewModel reviewModel;
   Future getReviewData() async{
     emit(LoadingReview());
@@ -466,4 +482,4 @@ class HomeCubit extends Cubit<HomeState> {
       print(error.toString());
     });
   }
-}
+ }
